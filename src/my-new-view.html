@@ -1,18 +1,20 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="../bower_components/google-map/google-map.html">
 <dom-module id="my-new-view">
   <!-- Defines the element's style and local DOM -->
   <template>
     <style>
-      :host {
-        display: block;
-
-        padding: 16px;
+      google-map {
+        height: 600px;
       }
     </style>
-
     <h1>New view</h1>
-	<paper-slider min="-100" max="100" value="50"></paper-slider>
+    <paper-slider min="-100" max="100" value="50"></paper-slider>
+    <google-map latitude="37.77493" longitude="-122.41942" api-key="AIzaSyCRg3ryY3-jOE4N-Wdm4hxpHW1D0_MdSKc" fit-to-markers>
+      <google-map-marker latitude="37.779" longitude="-122.3892" draggable="true" title="Go Giants!"></google-map-marker>
+      <google-map-marker latitude="37.777" longitude="-122.38911"></google-map-marker>
+    </google-map>
   </template>
   <!-- Creates the element's prototype and registers it -->
   <script>
