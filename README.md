@@ -4,15 +4,24 @@
 
 Install Node.js, which brings npm package manager.
 
-Install [polymer-cli](https://github.com/Polymer/polymer-cli):
+Install [bower] and [polymer-cli]
 
+    npm install -g bower
     npm install -g polymer-cli
+
 
 ##### Initialize project from template
 
     mkdir my-app
     cd my-app
     polymer init starter-kit
+
+
+### Bower
+	
+	bower update --save
+	bower install --save PolymerElements/paper-slider
+
 
 ### Start the development server
 
@@ -21,16 +30,11 @@ routing for the app:
 
     polymer serve --open
 
-### Bower
-	
-	npm install -g bower
-	bower update --save
-	bower install --save PolymerElements/paper-slider
-
 
 ### Build
 
     polymer build
+
 
 ### Deploy to app engine
 
