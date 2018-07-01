@@ -9,17 +9,25 @@
         height: 600px;
       }
     </style>
-    <h1>New view</h1>
-    <paper-slider min="-100" max="100" value="50"></paper-slider>
-    <google-map latitude="37.77493" longitude="-122.41942" api-key="AIzaSyCRg3ryY3-jOE4N-Wdm4hxpHW1D0_MdSKc" fit-to-markers>
-      <google-map-marker latitude="37.779" longitude="-122.3892" draggable="true" title="Go Giants!"></google-map-marker>
-      <google-map-marker latitude="37.777" longitude="-122.38911"></google-map-marker>
-    </google-map>
-  </template>
-  <!-- Creates the element's prototype and registers it -->
-  <script>
+<h1>New view</h1>
+<paper-slider min="-100" max="100" value="50"></paper-slider>
+<google-map latitude="37.77493" longitude="-122.41942" fit-to-markers>
+  <google-map-marker latitude="37.779" longitude="-122.3892" draggable="true" title="Go Giants!"></google-map-marker>
+  <google-map-marker latitude="37.777" longitude="-122.38911"></google-map-marker>
+</google-map>
+<paper-input value="{{message}}"></paper-input>
+[[message]]
+</template>
+
+<script>
     Polymer({
-      is: 'my-new-view'
+      is: 'my-new-view',
+      properties: {
+        message: {
+          type: String,
+          value: "Success!"
+        }
+      }
     });
   </script>
 </dom-module>

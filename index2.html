@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <title>app-drawer demo</title>
+
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="bower_components/polymer/polymer.html">
+  <link rel="import" href="bower_components/font-roboto/roboto.html">
+  <link rel="import" href="bower_components/iron-icon/iron-icon.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
+  <link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
+  <link rel="import" href="bower_components/google-map/google-map.html">
+  <link rel="import" href="bower_components/paper-progress/paper-progress.html">
+
+  <style is="custom-style">
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      background-color: #eee;
+    }
+    
+    app-toolbar {
+      background-color: #4285f4;
+      color: #fff;
+    }
+    
+    app-drawer {
+      --app-drawer-content-container: {
+        background-color: rgba(161, 170, 183, 0.9);
+      }
+    }
+    
+    google-map {
+      height: 400px;
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+    
+    paper-progress {
+      display: block;
+      width: 100%;
+      --paper-progress-active-color: rgba(255, 255, 255, 0.5);
+      --paper-progress-container-color: transparent;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <app-toolbar>
+    <paper-icon-button icon="menu"></paper-icon-button>
+    <div main-title>App name</div>
+    <paper-progress indeterminate bottom-item></paper-progress>
+  </app-toolbar>
+
+<dom-module id="alert-element">
+  <template>
+  <paper-input value="[[message]]"></paper-input>
+  [[message]]
+  </template>
+  
+  <script>
+Polymer({
+      is: "alert-element",
+      properties: {
+        message: {
+          type: String,
+          value: "Success!"
+        }
+      }
+    });
+    </script>
+</dom-module>
+
+  <div id="content">
+    <h1>New view</h1>
+    <paper-slider min="-100" max="100" value="50"></paper-slider>
+    <google-map latitude="37.77493" longitude="-122.41942" fit-to-markers>
+      <google-map-marker latitude="37.779" longitude="-122.3892" draggable="true" title="Go Giants!"></google-map-marker>
+      <google-map-marker latitude="37.777" longitude="-122.38911"></google-map-marker>
+    </google-map>
+  </div>
+
+  <app-drawer swipe-open>
+    drawer content
+  </app-drawer>
+
+  <script>
+    var drawer = document.querySelector('app-drawer');
+    document.querySelector('paper-icon-button').addEventListener('tap', function() {
+      drawer.toggle();
+    });
+  </script>
+
+</body>
+
+</html>
